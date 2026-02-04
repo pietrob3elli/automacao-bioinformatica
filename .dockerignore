@@ -1,19 +1,28 @@
-# Dockerignore file for bioinformatics pipeline
-
-# Git
+# Git and version control
 .git
 .gitignore
 .gitattributes
 
-# Python
+# Python cache and build files
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
-*.egg-info/
-dist/
 build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
 *.egg
 
 # Virtual environments
@@ -22,40 +31,47 @@ env/
 ENV/
 .venv
 
-# IDE
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
+.DS_Store
 
-# Testing
+# Testing and coverage
 .pytest_cache/
 .coverage
 htmlcov/
 .tox/
+.hypothesis/
 
 # Documentation
+docs/_build/
 docs/
+site/
 LICENSE
 
-# Data files (don't include in image, mount as volumes)
-data/
-output/
-*.fastq
-*.fasta
-*.fa
-*.fq
-*.fastq.gz
-*.csv
-*.tsv
+# Logs
 *.log
 
-# OS
-.DS_Store
-Thumbs.db
+# Data files (don't include in image - mount as volumes)
+data/
+results/
+output/
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.fasta
+*.fa
+*.bam
+*.sam
+*.csv
+*.tsv
 
-# Temporary files
+# OS and Temporary files
+Thumbs.db
 tmp/
 temp/
 *.tmp
