@@ -114,29 +114,50 @@ class CommandExecutor:
         Returns:
             A Popen object representing the running process.
         
+        Note:
+            When using file redirection, files are opened and will be
+            automatically closed when the process terminates and its
+            stdout/stderr attributes are garbage collected.
+        
         Example:
             >>> executor = CommandExecutor()
             >>> process = executor.run_command_async("long_running_task")
             >>> # Do other work...
-            >>> process.wait()
+            >>> exit_code = process.wait()
         """
         logger.info(f"Starting async command: {command}")
         
         cmd_list = shlex.split(command)
         
-        stdout_handle = open(stdout_file, 'w') if stdout_file else subprocess.PIPE
-        stderr_handle = open(stderr_file, 'w') if stderr_file else subprocess.PIPE
+        # Set up file handles - will be closed when process is garbage collected
+        stdout_handle = subprocess.PIPE
+        stderr_handle = subprocess.PIPE
         
-        process = subprocess.Popen(
-            cmd_list,
-            cwd=self.working_dir,
-            stdout=stdout_handle,
-            stderr=stderr_handle,
-            text=True
-        )
+        if stdout_file:
+            stdout_handle = open(stdout_file, 'w')
+        if stderr_file:
+            stderr_handle = open(stderr_file, 'w')
         
-        logger.info(f"Process started with PID: {process.pid}")
-        return process
+        try:
+            process = subprocess.Popen(
+                cmd_list,
+                cwd=self.working_dir,
+                stdout=stdout_handle,
+                stderr=stderr_handle,
+                text=True
+            )
+            
+            logger.info(f"Process started with PID: {process.pid}")
+            return process
+            
+        except Exception as e:
+            # Clean up file handles if process creation fails
+            if stdout_file and stdout_handle != subprocess.PIPE:
+                stdout_handle.close()
+            if stderr_file and stderr_handle != subprocess.PIPE:
+                stderr_handle.close()
+            logger.error(f"Failed to start async command: {str(e)}")
+            raise
     
     def check_tool_available(self, tool_name: str) -> bool:
         """
