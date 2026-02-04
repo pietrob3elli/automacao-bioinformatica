@@ -14,12 +14,16 @@ RUN apt-get update && apt-get install -y \
     libbz2-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Install SPAdes genome assembler
-RUN wget http://cab.spbu.ru/files/release3.15.5/SPAdes-3.15.5-Linux.tar.gz && \
-    tar -xzf SPAdes-3.15.5-Linux.tar.gz && \
-    mv SPAdes-3.15.5-Linux /opt/spades && \
-    rm SPAdes-3.15.5-Linux.tar.gz && \
-    ln -s /opt/spades/bin/spades.py /usr/local/bin/spades.py
+# Note: SPAdes installation is commented out due to network restrictions
+# In production, you can uncomment and install SPAdes, or use a pre-built image with SPAdes
+# Alternatively, install SPAdes manually after building the container
+#
+# Install SPAdes genome assembler (uncomment when network allows):
+# RUN wget http://cab.spbu.ru/files/release3.15.5/SPAdes-3.15.5-Linux.tar.gz && \
+#     tar -xzf SPAdes-3.15.5-Linux.tar.gz && \
+#     mv SPAdes-3.15.5-Linux /opt/spades && \
+#     rm SPAdes-3.15.5-Linux.tar.gz && \
+#     ln -s /opt/spades/bin/spades.py /usr/local/bin/spades.py
 
 # Copy requirements first for better caching
 COPY requirements.txt .

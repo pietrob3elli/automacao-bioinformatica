@@ -50,7 +50,6 @@ output/
 *.fastq.gz
 *.csv
 *.tsv
-*.txt
 *.log
 
 # OS
