@@ -3,6 +3,7 @@ Data Visualization Module
 Provides functionality for visualizing bioinformatics data using Pandas and Matplotlib.
 """
 
+import sys
 import pandas as pd
 import matplotlib
 matplotlib.use('Agg')  # Use non-interactive backend
@@ -262,7 +263,6 @@ def main():
     )
     
     success = visualizer.generate_plots(plot_type=args.plot_type)
-    import sys
     sys.exit(0 if success else 1)
 
 

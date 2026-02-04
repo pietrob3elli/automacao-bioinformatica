@@ -36,7 +36,6 @@ htmlcov/
 .tox/
 
 # Documentation
-*.md
 docs/
 LICENSE
 
