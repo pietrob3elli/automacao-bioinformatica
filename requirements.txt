@@ -1,16 +1,16 @@
 # Bioinformatics Automation Pipeline - Python Dependencies
-# For prokaryotic genome analysis
 
-# Core dependencies - No external dependencies needed for basic functionality
-# The pipeline uses only Python standard library modules
+# Core Data Manipulation
+pandas>=2.1.0
+numpy>=1.26.0
 
-# Optional: If you want to add additional features
-# pandas>=2.0.0  # For advanced data manipulation
-# biopython>=1.80  # For bioinformatics utilities
-# pyyaml>=6.0  # For YAML configuration files
+# Data Visualization & Reporting
+matplotlib>=3.8.0
+seaborn>=0.13.0
+tabulate>=0.9.0
 
-# Development dependencies (uncomment if needed)
-# pytest>=7.4.0  # For testing
-# black>=23.0.0  # For code formatting
-# flake8>=6.0.0  # For linting
-# mypy>=1.4.0  # For type checking
+# Bioinformatics Utilities
+biopython>=1.81
+
+# Infrastructure & CLI
+click>=8.1.0

@@ -48,14 +48,17 @@ htmlcov/
 
 # Documentation
 docs/_build/
+docs/
 site/
+LICENSE
 
 # Logs
 *.log
 
-# Data files (don't include in image)
+# Data files (don't include in image - mount as volumes)
 data/
 results/
+output/
 *.fastq
 *.fastq.gz
 *.fq
@@ -64,11 +67,11 @@ results/
 *.fa
 *.bam
 *.sam
+*.csv
+*.tsv
 
-# Temporary files
+# OS and Temporary files
+Thumbs.db
 tmp/
 temp/
 *.tmp
-
-# OS files
-Thumbs.db
