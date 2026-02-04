@@ -8,7 +8,7 @@ common bioinformatics file formats.
 import logging
 import csv
 from pathlib import Path
-from typing import List, Dict, Optional, Union
+from typing import List, Dict, Optional, Union, Any
 
 
 logger = logging.getLogger(__name__)
@@ -74,7 +74,7 @@ class FileHandler:
     
     @staticmethod
     def write_csv(
-        data: List[Dict[str, any]],
+        data: List[Dict[str, Any]],
         file_path: Path,
         delimiter: str = ',',
         fieldnames: Optional[List[str]] = None

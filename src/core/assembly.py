@@ -7,7 +7,7 @@ on sequencing data.
 
 import logging
 from pathlib import Path
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Any
 from .command_executor import CommandExecutor
 
 
@@ -110,7 +110,7 @@ class GenomeAssembly:
             logger.error(f"SPAdes assembly failed: {str(e)}")
             return False
     
-    def get_assembly_stats(self, contigs_file: Path) -> Dict[str, any]:
+    def get_assembly_stats(self, contigs_file: Path) -> Dict[str, Any]:
         """
         Calculate basic statistics for an assembly.
         

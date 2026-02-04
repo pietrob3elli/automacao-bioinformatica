@@ -7,7 +7,7 @@ the results of bioinformatics analyses.
 
 import logging
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 from datetime import datetime
 
 
@@ -132,7 +132,7 @@ class ReportGenerator:
     def add_assembly_section(
         self,
         sample_name: str,
-        assembly_stats: Dict[str, any]
+        assembly_stats: Dict[str, Any]
     ) -> Dict[str, str]:
         """
         Create an Assembly Statistics section for the report.
