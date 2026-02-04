@@ -15,6 +15,7 @@ This repository demonstrates a full-stack bioinformatics approach, translating r
 - **Modular Architecture**: Clean separation of concerns between assembly logic (`src/genome_assembly.py`) and analytics (`src/data_visualization.py`).
 - **Genome Assembly**: Automated SPAdes integration for *de novo* prokaryotic assembly.
 - **Data Visualization**: Dynamic generation of assembly metrics (N50, GC content) using Pandas and Matplotlib.
+- **Interactive Dashboard**: Modern Next.js web dashboard for visualizing pipeline results with Recharts and Tailwind CSS. See [dashboard/README.md](dashboard/README.md) for details.
 - **Automated Reporting**: Scripted conversion of technical CSV/TSV outputs into readable Markdown summaries.
 - **Containerization**: Full Dockerfile support to ensure consistent environments across different servers.
 - **Professional Logging**: Implementation of the `logging` module for audit trails in automated processes.
@@ -28,6 +29,7 @@ automacao-bioinformatica/
 │   ├── genome_assembly.py    # Subprocess-based assembly orchestration
 │   └── data_visualization.py # Pandas-based data analytics and plotting
 ├── data/                     # Input directory (FASTQ/CSV samples)
+├── dashboard/                # Next.js web dashboard for visualizing results
 ├── main.py                   # CLI entry point with argparse
 ├── requirements.txt          # Python dependency manifest
 ├── Dockerfile                # Environment recipe (Ubuntu 22.04 + Bio tools)
