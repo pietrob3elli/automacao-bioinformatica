@@ -1,0 +1,13 @@
+# Python dependencies for bioinformatics pipeline
+
+# Core dependencies
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# For SPAdes (external tool - installed separately)
+# SPAdes should be installed via system package manager or from source
+# See: http://cab.spbu.ru/software/spades/
